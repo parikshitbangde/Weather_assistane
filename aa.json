@@ -1,0 +1,24 @@
+// background.js
+
+function playSound() {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    
+    oscillator.type = 'sine'; // Type of wave (sine wave in this case)
+    oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // Frequency in Hz (440 Hz is the A4 note)
+    oscillator.connect(audioContext.destination);
+    oscillator.start();
+    
+    setTimeout(() => {
+      oscillator.stop(); // Stop the sound after 1 second
+      audioContext.close(); // Close the audio context
+    }, 1000);
+  }
+  
+  // Listen for a message from the popup to trigger the sound
+  chrome.runtime.onMessage.addListener((message) => {
+    if (message === 'play_sound') {
+      playSound();
+    }
+  });
+  

@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "My Extension",
+    "version": "1.0",
+    "description": "A description of your extension.",
+    "permissions": [],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icons/icon.png"
+    }
+  }
+  

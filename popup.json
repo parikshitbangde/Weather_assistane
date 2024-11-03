@@ -1,0 +1,5 @@
+// popup.js
+document.getElementById('playSoundButton').addEventListener('click', () => {
+    chrome.runtime.sendMessage('play_sound');
+  });
+  
